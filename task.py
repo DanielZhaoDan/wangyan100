@@ -1,0 +1,1 @@
+from read_documents import ReadDocumentsdocuments = ReadDocuments('documents.txt')for doc in documents:    print("ID: ", doc.docid)    print(doc.lines[0])
