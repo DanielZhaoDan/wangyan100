@@ -1,1 +1,1 @@
-from read_documents import ReadDocumentsdocuments = ReadDocuments('documents.txt')for doc in documents:    print("ID: ", doc.docid)    print(doc.lines[0])
+from read_documents import ReadDocumentsfrom nltk.stem import PorterStemmeris_using_stop_list = Falsedef load_docs(doc_name):    documents = ReadDocuments(doc_name)    for doc in documents:        if is_using_stop_list:            content = ' '.join(doc.lines)def tokenization_docs(content):if __name__ == '__main__':    stemmer = PorterStemmer()    wd = 'tokenization'    print wd, stemmer.stem(wd)
