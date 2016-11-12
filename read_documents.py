@@ -8,8 +8,10 @@ class ReadDocuments:
     def __iter__(self):
         startdoc = re.compile('<document docid\s*=\s*(\d+)\s*>')
         enddoc = re.compile('</document\s*>')
+        author = re.compile(('^.*, .\.'))
         readingDoc = False
         abstract = []
+        title = []
         with open(self.collection_file) as input_fs:
             for line in input_fs:
                 m = startdoc.search(line)
@@ -17,18 +19,23 @@ class ReadDocuments:
                     readingDoc = True
                     doc = Document()
                     abstract = []
+                    title = []
                     doc.docid = int(m.group(1))
                 elif enddoc.search(line):
                     doc.abstract = ' '.join(abstract)
+                    doc.title = ' '.join(title)
                     readingDoc = False
                     yield doc
                 elif readingDoc:
                     doc.lines.append(line)
+                    if author.search(line):
+                        doc.author = line.strip()
+                    if not author.search(line) and doc.author == '' and line != '\n':
+                        title.append(line.strip())
                     if line.startswith('CACM '):
-                        doc.post_date = line
-                    if doc.post_date != '':
-                        abstract.append(line)
-# .*, .\.
+                        doc.post_date = line.strip()
+                    elif doc.post_date != '' and line != '\n':
+                        abstract.append(line.strip())
 
 
 class Document:
