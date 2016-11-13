@@ -1,4 +1,4 @@
-##This is a basic information retrieval system implemented by Pan Chengdong.##
+## This is a basic information retrieval system implemented by Pan Chengdong. ##
 
 ## Config environment ##
 # 1 Python environment
@@ -8,4 +8,6 @@ Run '(sudo) pip install -r requirements.txt' in command to install required libr
 
 ## Run ##
 # 1 enter the src folder
-# 2 run 'python task.py -h' to get hint about how to run this system with options. Sample: python task.py -i index.txt -n 5
+# 2 run 'python task.py -h'
+To get hint about how to run this system with options.
+Sample: python task.py -i index.txt -n 5
