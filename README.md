@@ -1,4 +1,4 @@
-##This is a basic information retrieval system implemented by Pan Chengdong.##
+##This is a basic information retrieval system implemented.##
 
 ## Config environment ##
 # 1 Python environment
